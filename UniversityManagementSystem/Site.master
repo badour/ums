@@ -1,0 +1,38 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>University Management System</title>
+    <style type="text/css">
+        body { font-family: Arial, sans-serif; margin: 0; background: #f6f8fa; }
+        .nav { background: #16325c; padding: 12px 20px; color: white; }
+        .nav a { color: white; margin-right: 16px; text-decoration: none; font-weight: bold; }
+        .container { padding: 20px; }
+        .card { background: white; border-radius: 6px; padding: 16px; margin-bottom: 16px; box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
+        .form-row { margin-bottom: 10px; }
+        label { display: inline-block; width: 120px; }
+        input[type=text], select, textarea { width: 260px; padding: 6px; }
+        table { border-collapse: collapse; width: 100%; background: white; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #efefef; }
+        .btn { background: #16325c; color: white; border: none; padding: 8px 12px; cursor: pointer; }
+        .muted { color: #666; font-size: 12px; }
+        .response-box { white-space: pre-wrap; background: #f0f5ff; border: 1px solid #c8d9ff; padding: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="nav">
+            <a href="Default.aspx">Dashboard</a>
+            <a href="Students.aspx">Students</a>
+            <a href="Courses.aspx">Courses</a>
+            <a href="Enrollments.aspx">Enrollments</a>
+            <a href="AiAssistant.aspx">AI Assistant</a>
+        </div>
+        <div class="container">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+    </form>
+</body>
+</html>
