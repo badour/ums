@@ -1,4 +1,4 @@
-<%@ Page Title="Instructors" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="Instructors.aspx.cs" Inherits="Instructors" %>
+<%@ Page Title="Instructors" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Instructors.aspx.cs" Inherits="UMS.Instructors" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="page-header">
         <div>

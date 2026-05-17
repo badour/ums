@@ -1,9 +1,12 @@
 using System;
 using System.Web.UI;
 
-public partial class Students : Page
+namespace UMS
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class Students : Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+        }
     }
 }

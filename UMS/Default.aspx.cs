@@ -1,26 +1,29 @@
 using System;
 using System.Web.UI;
 
-public partial class _Default : Page
+namespace UMS
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class _Default : Page
     {
-        if (!IsPostBack)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            LoadDashboard();
+            if (!IsPostBack)
+            {
+                LoadDashboard();
+            }
         }
-    }
 
-    private void LoadDashboard()
-    {
-        var repo = new DashboardRepository();
-        var metrics = repo.GetMetrics();
+        private void LoadDashboard()
+        {
+            var repo = new DashboardRepository();
+            var metrics = repo.GetMetrics();
 
-        lblStudents.Text = metrics.TotalStudents.ToString();
-        lblCourses.Text = metrics.TotalCourses.ToString();
-        lblEnrollments.Text = metrics.TotalEnrollments.ToString();
-        lblDepartments.Text = metrics.TotalDepartments.ToString();
-        lblInstructors.Text = metrics.TotalInstructors.ToString();
-        lblActive.Text = metrics.ActiveStudents.ToString();
+            lblStudents.Text = metrics.TotalStudents.ToString();
+            lblCourses.Text = metrics.TotalCourses.ToString();
+            lblEnrollments.Text = metrics.TotalEnrollments.ToString();
+            lblDepartments.Text = metrics.TotalDepartments.ToString();
+            lblInstructors.Text = metrics.TotalInstructors.ToString();
+            lblActive.Text = metrics.ActiveStudents.ToString();
+        }
     }
 }
