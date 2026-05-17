@@ -1,0 +1,13 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+packages/
+TestResults/
+_ReSharper*/
+*.pdb
+*.dll
+Thumbs.db
+.DS_Store
