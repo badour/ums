@@ -1,0 +1,200 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="UMS.SiteMaster" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UMS - <%: Page.Title %></title>
+
+    <!-- Bootstrap 5 -->
+    <link id="bootstrapCss" rel="stylesheet" href="~/assets/lib/bootstrap/bootstrap.min.css" />
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="~/assets/lib/fontawesome/css/all.min.css" />
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/assets/lib/datatables/datatables.min.css" />
+    <!-- Select2 -->
+    <link rel="stylesheet" href="~/assets/lib/select2/select2.min.css" />
+    <link rel="stylesheet" href="~/assets/lib/select2/select2-bootstrap-5-theme.min.css" />
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="~/assets/lib/sweetalert2/sweetalert2.min.css" />
+    <!-- Toastr -->
+    <link rel="stylesheet" href="~/assets/lib/toastr/toastr.min.css" />
+    <!-- Custom Theme -->
+    <link rel="stylesheet" href="~/assets/css/theme.css" />
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fas fa-university" style="font-size: 28px; color: #4e73df;"></i>
+                <span class="brand-text">UMS ERP</span>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-header">Main</li>
+                <li class="menu-item">
+                    <a href="~/Default.aspx" class="menu-link" runat="server">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="menu-header">Academic</li>
+                <li class="menu-item">
+                    <a href="javascript:void(0)" class="menu-link" data-toggle="submenu">
+                        <i class="fas fa-building"></i>
+                        <span>Departments</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li class="menu-item">
+                            <a href="~/Departments.aspx" class="menu-link" runat="server">
+                                <span>All Departments</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="javascript:void(0)" class="menu-link" data-toggle="submenu">
+                        <i class="fas fa-user-graduate"></i>
+                        <span>Students</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li class="menu-item">
+                            <a href="~/Students.aspx" class="menu-link" runat="server">
+                                <span>All Students</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="javascript:void(0)" class="menu-link" data-toggle="submenu">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Instructors</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li class="menu-item">
+                            <a href="~/Instructors.aspx" class="menu-link" runat="server">
+                                <span>All Instructors</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="javascript:void(0)" class="menu-link" data-toggle="submenu">
+                        <i class="fas fa-book"></i>
+                        <span>Courses</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li class="menu-item">
+                            <a href="~/Courses.aspx" class="menu-link" runat="server">
+                                <span>All Courses</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="javascript:void(0)" class="menu-link" data-toggle="submenu">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Enrollments</span>
+                        <i class="fas fa-chevron-right arrow"></i>
+                    </a>
+                    <ul class="submenu">
+                        <li class="menu-item">
+                            <a href="~/Enrollments.aspx" class="menu-link" runat="server">
+                                <span>All Enrollments</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="menu-header">Settings</li>
+                <li class="menu-item">
+                    <a href="javascript:void(0)" class="menu-link" id="rtlToggle">
+                        <i class="fas fa-language"></i>
+                        <span>Toggle RTL/LTR</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Sidebar Overlay (mobile) -->
+        <div class="sidebar-overlay"></div>
+
+        <!-- Top Bar -->
+        <header class="topbar">
+            <button type="button" class="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="search-box d-none d-md-block">
+                <i class="fas fa-search"></i>
+                <input type="text" class="form-control" placeholder="Search..." />
+            </div>
+            <div class="topbar-right">
+                <button type="button" class="nav-icon" data-bs-toggle="tooltip" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge-dot"></span>
+                </button>
+                <button type="button" class="nav-icon" data-bs-toggle="tooltip" title="Messages">
+                    <i class="fas fa-envelope"></i>
+                </button>
+                <div class="dropdown">
+                    <div class="user-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div style="width:36px;height:36px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;">A</div>
+                        <div class="user-info d-none d-md-block">
+                            <div class="user-name">Admin</div>
+                            <div class="user-role">Administrator</div>
+                        </div>
+                        <i class="fas fa-chevron-down" style="font-size:12px; color: var(--text-muted);"></i>
+                    </div>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Profile</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> Settings</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+
+            <!-- Footer -->
+            <footer class="main-footer">
+                &copy; <%= DateTime.Now.Year %> University Management System. All rights reserved.
+            </footer>
+        </main>
+    </form>
+
+    <!-- jQuery -->
+    <script src="assets/lib/datatables/jquery.min.js"></script>
+    <!-- Bootstrap 5 Bundle -->
+    <script src="assets/lib/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- DataTables -->
+    <script src="assets/lib/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/lib/datatables/dataTables.bootstrap5.min.js"></script>
+    <!-- Chart.js -->
+    <script src="assets/lib/chartjs/chart.min.js"></script>
+    <!-- Select2 -->
+    <script src="assets/lib/select2/select2.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="assets/lib/sweetalert2/sweetalert2.all.min.js"></script>
+    <!-- Toastr -->
+    <script src="assets/lib/toastr/toastr.min.js"></script>
+    <!-- Theme JS -->
+    <script src="assets/js/theme.js"></script>
+
+    <asp:ContentPlaceHolder ID="ScriptsContent" runat="server" />
+</body>
+</html>
